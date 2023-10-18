@@ -176,6 +176,9 @@ public class App {
                 long length = value.length();
                 int mb = (int) (length / PER_MB + (length % PER_MB == 0 ? 0 : 1));
                 long fileCount = mb / MB_SIZE + (mb % MB_SIZE == 0 ? 0 : 1);
+                if (fileCount == 0) {
+                    fileCount = 1;
+                }
                 long perFileSize = length / fileCount + (length % fileCount == 0 ? 0 : 1);
 
                 System.out.println("perFileSize " + perFileSize + " fileCount " + fileCount + " available " + length);
